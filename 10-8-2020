@@ -1,0 +1,91 @@
+~$ pwd
+/home/user
+~$ mkdir Mydir1
+~$ ls
+ Mydir1  'Welcome to CoCalc.term'   directory1   myfile   myfile1
+~$ cd Mydir1
+~/Mydir1$ pwd
+/home/user/Mydir1
+~/Mydir1$ ls -l
+total 0
+~/Mydir1$ cat>f1
+Hello
+^C
+~/Mydir1$ ls -l
+total 1
+-rw-r--r-- 1 user user 6 Aug 10 08:55 f1
+~/Mydir1$ ln f1 f2
+~/Mydir1$ cat f2
+Hello
+~/Mydir1$ ls -l
+total 2
+-rw-r--r-- 2 user user 6 Aug 10 08:55 f1
+-rw-r--r-- 2 user user 6 Aug 10 08:55 f2
+~/Mydir1$ ln f2 f3
+~/Mydir1$ cat f3
+Hello
+~/Mydir1$ cp f1 f4
+~/Mydir1$ cat f4
+Hello
+~/Mydir1$ cat>>f1
+WORLD!!^C
+~/Mydir1$ cat f1
+Hello
+~/Mydir1$ cat f1
+Hello
+~/Mydir1$ ~$ cat>>f1
+WORLD!!!
+^C
+~$ cat f1
+WORLD!!!
+~$ cd
+~$ cat f2
+cat: f2: No such file or directory
+~$ cd Mydir1
+~/Mydir1$ cat>>f1
+HYY  
+^C
+~/Mydir1$ cat f1
+Hello
+HYY
+~/Mydir1$ cat f2
+Hello
+HYY
+~/Mydir1$ cp f1 f5
+~/Mydir1$ cat f5
+Hello
+HYY
+~/Mydir1$ ls -i f1
+388 f1
+~/Mydir1$ ls -i f2
+388 f2
+~/Mydir1$ ls -i f5
+6 f5
+~/Mydir1$ man ls
+~/Mydir1$ ls -l
+total 5
+-rw-r--r-- 3 user user 10 Aug 10 10:03 f1
+-rw-r--r-- 3 user user 10 Aug 10 10:03 f2
+-rw-r--r-- 3 user user 10 Aug 10 10:03 f3
+-rw-r--r-- 1 user user  6 Aug 10 09:00 f4
+-rw-r--r-- 1 user user 10 Aug 10 10:04 f5
+~/Mydir1$ ps 
+    PID TTY          TIME CMD
+    269 pts/0    00:00:00 bash
+    896 pts/0    00:00:00 ps
+~/Mydir1$ ps -e
+    PID TTY          TIME CMD
+      1 ?        00:00:00 tini
+      6 ?        00:00:00 sh
+      7 ?        00:00:11 node
+     19 ?        00:00:00 sshd
+    269 pts/0    00:00:00 bash
+    897 pts/0    00:00:00 ps
+~/Mydir1$ ps -a
+    PID TTY          TIME CMD
+    907 pts/0    00:00:00 ps
+~/Mydir1$ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+user         269       7  0 09:38 pts/0    00:00:00 /bin/bash
+user         908     269  0 10:08 pts/0    00:00:00 ps -f
+~/Mydir1$ kill 908

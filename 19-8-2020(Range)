@@ -1,0 +1,32 @@
+echo "Enter initial value"
+read num1
+echo "Enter final value"
+read num2
+echo "Range of values="
+while [ $num1 -le $num2 ]
+do
+echo $num1
+num1=`expr $num1 + 1`
+done
+
+:wq
+
+~$ vi value
+~$ sh value
+Enter initial value
+5
+Enter final value
+15
+Range of values=
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+~$

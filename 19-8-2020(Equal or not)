@@ -1,0 +1,22 @@
+echo "Enter the first number"
+read num1
+echo "Enter the second number"
+read num2
+if [ $num1 -eq $num2 ]
+then 
+echo "Equal"
+else
+echo "Not Equal"
+fi
+
+:wq
+
+~$ vi equal
+~$ sh equal
+
+Enter the first number
+2
+Enter the second number
+2
+Equal
+~$

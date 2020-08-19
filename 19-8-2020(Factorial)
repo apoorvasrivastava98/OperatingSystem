@@ -1,0 +1,20 @@
+echo "Enter a number"
+read num
+f=1
+fact=1
+while [ $f -le $num ]
+do
+fact=`expr $f \* $fact`
+f=`expr $f + 1`
+done
+echo "The Factorial of this number=" $fact
+
+:wq
+
+~$ vi fact
+~$ sh fact
+
+Enter a number
+6
+The Factorial of this number= 720
+~$

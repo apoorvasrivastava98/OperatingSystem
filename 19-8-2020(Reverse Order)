@@ -1,0 +1,27 @@
+echo "Enter a number"
+read num
+echo "Reverse order will be-"
+while [ $num -gt 0 ]
+do
+echo $num
+num=`expr $num - 1`
+done
+
+:wq
+
+~$ vi reverse
+~$ sh reverse
+Enter a number
+10
+Reverse order will be-
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+~$ 

@@ -1,0 +1,17 @@
+echo "enter the length"
+read l
+echo "enter the breadth"
+read b
+ar=`echo $l \* $b |bc`
+echo "Area=" $ar
+
+:wq
+
+~$ vi rectarea
+~$ sh rectarea
+enter the length
+7
+enter the breadth
+5
+Area= 35
+~$ 

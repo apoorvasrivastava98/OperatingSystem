@@ -1,0 +1,16 @@
+echo "enter the radius"
+read rad
+cir=`echo 3.14 \* 2 \* $rad |bc`
+ar=`echo 3.14 \* $rad \* $rad |bc`
+echo "Area="$ar
+echo "Circum="$cir
+
+:wq
+
+~$ vi area
+~$ sh area
+enter the radius
+5
+Area=78.50
+Circum=31.40
+~$ 

@@ -1,0 +1,19 @@
+echo "Enter the number"
+read num
+sum=0
+while [ $num -gt 0 ]
+do
+r=`expr $num % 10`
+sum=`expr $sum + $r`
+num=`expr $num / 10`
+done
+echo "Sum of digits of given number=" $sum
+
+:wq
+
+~$ vi digitsum
+~$ sh digitsum
+Enter the number
+555533
+Sum of digits of given number= 26
+~$ 

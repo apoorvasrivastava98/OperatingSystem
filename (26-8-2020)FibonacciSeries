@@ -1,0 +1,37 @@
+echo "Enter a number"
+read num
+a=0
+b=1
+echo "Fibonacci Series upto $num terms"
+echo $a
+echo $b
+while [ $num -gt 0 ]
+do
+sum=0
+sum=`expr $a + $b`
+num=`expr $num - 1`
+echo $sum
+a=$b
+b=$sum
+done
+
+:wq
+
+~$ vi fib
+~$ sh fib
+Enter a number
+10
+Fibonacci Series upto 10 terms
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+~$

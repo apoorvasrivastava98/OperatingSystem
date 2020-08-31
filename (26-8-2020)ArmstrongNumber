@@ -1,0 +1,26 @@
+echo "Enter a number"
+read num
+n=$num
+s=0
+while [ $num -gt 0 ]
+do
+r=`expr $num % 10`
+q=`expr $r \* $r \* $r`
+s=`expr $s + $q`
+num=`expr $num / 10`
+done
+if [ $s -eq $n ]
+then
+echo "Number is Armstrong"
+else
+echo "Number is not Armstrong"
+fi
+
+:wq
+
+~$ vi armstrong
+~$ sh armstrong
+Enter a number
+153
+Number is Armstrong
+~$

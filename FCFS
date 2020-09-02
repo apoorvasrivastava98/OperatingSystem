@@ -1,0 +1,44 @@
+#include <stdio.h>
+int main()
+{
+    int n,bt[10],wt[10],tat[10],i,j;
+    float awt=0,atat=0;
+    wt[0]=0;
+    printf("Enter the number of processes \n");
+    scanf("%d",&n);
+    printf("Enter the burst time for each process");
+    for(i=0;i<n;i++)
+    {
+            scanf("%d",&bt[i]);
+    }
+
+    for(i=1;i<n;i++)
+    {
+        wt[i]=wt[i-1]+bt[i-1];
+
+    }
+    for(i=0;i<n;i++)
+    {
+            tat[i]=wt[i]+bt[i];
+    }
+    for(i=0;i<n;i++)
+    {
+            awt=awt+wt[i];
+            atat=atat+tat[i];
+    }
+    printf("Average waiting time =%f\n ",awt/n);
+    printf("Average turnaroundtime =%f \n",atat/n);
+}
+
+:wq
+
+~$ vi fcfs.c
+~$ cc fcfs.c
+~$ ./a.out
+Enter the number of processes 
+3
+Enter the burst time for each process
+24 3 3
+Average waiting time =17.000000
+ Average turnaroundtime =27.000000 
+~$

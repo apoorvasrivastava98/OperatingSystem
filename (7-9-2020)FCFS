@@ -1,0 +1,69 @@
+#include<stdio.h>
+int main()
+{
+    int arr[10],bur[10],star[10],finish[10],tat[10],wt[10],i,j,n,temp;
+    int totwt=0,tottat=0;
+    printf("FCFS CPU SCHEDULING WITH ARRIVAL TIME\n");
+    printf("Enter the number of processes:");
+    scanf("%d",&n);
+    for(i=0; i<n; i++)
+    {
+        printf("Enter the Arrival Time and  Burst Time:");
+        scanf("%d%d",&arr[i],&bur[i]);
+    }
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<n; j++)
+        {
+            if(arr[i]<arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                temp=bur[i];
+                bur[i]=bur[j];
+                bur[j]=temp;
+             }
+
+        }
+    }
+    for(i=0; i<n; i++)
+    {
+        if(i==0)
+            star[i]=arr[i];
+        else
+        star[i]=finish[i-1];
+        wt[i]=star[i]-arr[i];
+        finish[i]=star[i]+bur[i];
+        tat[i]=finish[i]-arr[i];
+    }
+    printf("\n Arrivaltime Bursttime WaitingTime Start TAT Finish");
+    for(i=0; i<n; i++)
+    {
+        printf("\n%3d\t%9d\t%6d\t%6d\t%3d\t%3d",arr[i],bur[i],wt[i],star[i],tat[i],finish[i]);
+        totwt+=wt[i];
+        tottat+=tat[i];
+    }
+    printf("\nAverage Waiting time:%f",(float)totwt/n);
+    printf("\nAverage Turn Around Time:%f\n",(float)tottat/n);
+    return 0;
+}
+~ 
+:wq
+
+~$ vi fcfs.c
+~$ cc fcfs.c
+~$ ./a.out
+FCFS CPU SCHEDULING WITH ARRIVAL TIME
+Enter the number of processes:3
+Enter the Arrival Time and  Burst Time:2 24
+Enter the Arrival Time and  Burst Time:5 3
+Enter the Arrival Time and  Burst Time:7 3
+
+ Arrivaltime Bursttime WaitingTime Start TAT Finish
+  2            24            0       2   24      26
+  5             3           21      26   24      29
+  7             3           22      29   25      32
+Average Waiting time:14.333333
+Average Turn Around Time:24.333334
+~$ 

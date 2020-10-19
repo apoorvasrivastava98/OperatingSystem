@@ -1,0 +1,12 @@
+echo "Enter a number"
+read n
+sum=0
+len=`echo $n | wc -c`
+len=`expr $len - 1`
+while [ $len -ne 0 ]
+do
+l=`echo $n | cut -c $len`
+len=`expr $len - 1`
+sum=`expr $sum + $l`
+done
+echo "Sum of the digits is $sum"

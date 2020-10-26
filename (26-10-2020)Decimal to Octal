@@ -1,0 +1,13 @@
+echo "Enter the decimal number to be converted" 
+read n 
+num=$n
+val=0 
+pow=1 
+while [ $n -ne 0 ] 
+do 
+r=`expr $n % 8` 
+val=`expr $r \* $pow + $val` 
+pow=`expr $pow \* 10` 
+n=`expr $n / 8` 
+done 
+echo "Octal Equivalent of $num is = $val"
